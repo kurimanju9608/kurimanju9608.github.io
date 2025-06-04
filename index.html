@@ -2,30 +2,117 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>こんにちは！</title>
+  <title>山田太郎 | 研究紹介ポートフォリオ</title>
   <style>
     body {
+      font-family: sans-serif;
+      background-color: #f0f2f5;
       margin: 0;
       padding: 0;
-      height: 100vh;
-      font-family: sans-serif;
-      display: grid;
-      place-items: center;
-      background-color: #f9f9f9;
     }
 
-    .profile-container {
-      display: grid;
-      grid-template-areas:
-        "icon info"
-        "intro intro";
-      grid-template-columns: 150px 1fr;
-      grid-gap: 1rem;
+    .container {
+      max-width: 800px;
+      margin: 3rem auto;
       background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    /* タブ選択のラジオボタンを非表示 */
+    input[type="radio"] {
+      display: none;
+    }
+
+    /* タブ見出し */
+    .tabs {
+      display: flex;
+      background-color: #2c3e50;
+    }
+
+    .tab-label {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tab-label:hover {
+      background-color: #34495e;
+    }
+
+    /* チェックされたタブに強調表示 */
+    #tab1:checked ~ .tabs label[for="tab1"],
+    #tab2:checked ~ .tabs label[for="tab2"],
+    #tab3:checked ~ .tabs label[for="tab3"] {
+      background-color: #1abc9c;
+    }
+
+    /* 各コンテンツ表示領域 */
+    .tab-content {
+      display: none;
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
+    }
+
+    #tab1:checked ~ .content #content1,
+    #tab2:checked ~ .content #content2,
+    #tab3:checked ~ .content #content3 {
+      display: block;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+    p {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- ラジオボタンによるタブ制御 -->
+    <input type="radio" id="tab1" name="tabs" checked>
+    <input type="radio" id="tab2" name="tabs">
+    <input type="radio" id="tab3" name="tabs">
+
+    <!-- タブヘッダー -->
+    <div class="tabs">
+      <label for="tab1" class="tab-label">プロフィール</label>
+      <label for="tab2" class="tab-label">研究紹介</label>
+      <label for="tab3" class="tab-label">連絡先</label>
+    </div>
+
+    <!-- コンテンツ -->
+    <div class="content">
+      <div class="tab-content" id="content1">
+        <h1>山田 太郎（Taro Yamada）</h1>
+        <p>架空大学 理工学部 准教授。人工知能とヒューマンインタフェースの融合領域を専門に研究しています。</p>
+        <p>趣味は囲碁と文房具集め。</p>
+      </div>
+
+      <div class="tab-content" id="content2">
+        <h1>研究紹介</h1>
+        <p><strong>研究テーマ①：</strong>感情認識AIの開発</p>
+        <p>音声・表情・生体信号を統合して人間の感情を高精度に推定するAIシステムの構築。</p>
+        <p><strong>研究テーマ②：</strong>教育現場におけるVR学習支援</p>
+        <p>没入型VRによる科学教育の効果検証。児童・生徒の探究心を高めるデザインとは。</p>
+      </div>
+
+      <div class="tab-content" id="content3">
+        <h1>連絡先</h1>
+        <p>所属：架空大学 理工学部 知能情報工学科</p>
+        <p>Email: yamada.taro@example.edu</p>
+        <p>研究室Web: <a href="#">http://example.com/yamada-lab</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
       width: 90%;
     }
 
