@@ -2,26 +2,86 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>こんにちは</title>
+  <title>こんにちは！</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
       font-family: sans-serif;
+      display: grid;
+      place-items: center;
       background-color: #f9f9f9;
-      padding: 2rem;
-      line-height: 1.6;
     }
-    h1 {
+
+    .profile-container {
+      display: grid;
+      grid-template-areas:
+        "icon info"
+        "intro intro";
+      grid-template-columns: 150px 1fr;
+      grid-gap: 1rem;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .profile-icon {
+      grid-area: icon;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-icon img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile-info {
+      grid-area: info;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile-info h1 {
+      margin: 0;
+      font-size: 1.8em;
       color: #2c3e50;
     }
-    p {
-      margin: 0.5em 0;
+
+    .profile-info p {
+      margin: 0.5em 0 0 0;
+      font-size: 1em;
+      color: #555;
+    }
+
+    .profile-intro {
+      grid-area: intro;
+      font-size: 1em;
+      color: #333;
+      padding-top: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1>こんにちは！</h1>
-  <p><strong>名前：</strong>くりまんじゅう</p>
-  <p><strong>好きなこと：</strong>和菓子、ちいかわ</p>
-  <p><strong>一言：</strong>プログラミングを勉強中です！よろしくお願いします。</p>
+  <div class="profile-container">
+    <div class="profile-icon">
+      <img src="https://prog-8.com/images/sass/wanko.svg" alt="プロフィール画像">
+    </div>
+    <div class="profile-info">
+      <h1>くりまんじゅう</h1>
+      <p>大学生 / 理工学部</p>
+    </div>
+    <div class="profile-intro">
+      <p>プログラミングを勉強中です！よろしくお願いします。</p>
+    </div>
+  </div>
 </body>
 </html>
